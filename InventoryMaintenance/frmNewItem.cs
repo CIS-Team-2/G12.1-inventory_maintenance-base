@@ -52,7 +52,13 @@ namespace InventoryMaintenance
                 cboSizeOrManufacturer.Items.Add("Scotts");
             }
         }
-
+/* *************************************************************************************
+ * Step 5. Modify the event handler for the click event of the Save button on the
+ *         new item form so it creates a new item of the appropriate type using
+ *         the data entered by the user.
+ * 
+ * -- McKee & Tepper, 11JUN2022
+ * ************************************************************************************/
         private void btnSave_Click(object sender, EventArgs e)
         {
             if (IsValidData())
