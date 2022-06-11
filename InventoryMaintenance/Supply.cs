@@ -27,7 +27,23 @@ using System.Text;
 
 namespace InventoryMaintenance
 {
-    internal class Supply
+
+    public class Supply : InvItem
     {
+        public Supply() { } // 4-b
+
+        public string Manufacturer { get; set; } // 4-a. new property
+
+        // 4-c. i, iv, ii, iii
+        public Supply(int itemNo, string manufacturer, string description, decimal price) : base(itemNo, description, price)
+        {
+            this.Manufacturer = manufacturer; // initializes the Manufacturer field after
+                                              // the base class constructor is called
+        }
+
+        public virtual string GetDisplayText(string sep) // 4-d
+        {
+            return this.ItemNo + sep + this.Manufacturer + sep + this.Description + "( " + this.Price.ToString("c") + ")";
+        }
     }
 }

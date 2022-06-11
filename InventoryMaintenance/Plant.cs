@@ -25,7 +25,22 @@ using System.Text;
  * *************************************************************************************************/
 namespace InventoryMaintenance
 {
-    private class Plant
+    public class Plant : InvItem
     {
+        public Plant() { } // 3-b. 
+        public string Size { get; set; } // 3-a. new property
+
+        // 3-c. i, iv, ii, iii
+        public Plant (int itemNo, string size, string description, decimal price) : base(itemNo, description, price)
+        {
+            this.Size = size; // initializes the size field after the
+                              // base class constructor is called
+        }
+
+        public virtual string GetDisplayText(string sep) // 3-d
+        {
+            return this.ItemNo + sep + this.Size + sep + this.Description + "( " + this.Price.ToString("c") + ")";
+        }
     }
 }
+

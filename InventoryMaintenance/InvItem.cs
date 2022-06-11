@@ -27,20 +27,15 @@ namespace InventoryMaintenance
         public string Description { get; set; }
         public decimal Price { get; set; }
 
-        //public string GetDisplayText() => $"{ItemNo}    {Description} ({Price:c})";
+        public string GetDisplayText() => $"{ItemNo}    {Description} ({Price:c})";
 
 /* *******************************************************************
 * Step 2. Modify the GetDisplayText() method so it's overridable.
 * -- McKee & Tepper, 11JUN2022
 * *******************************************************************/
-        public string GetDisplayText()
-        {
-            return GetDisplayText(", ");
-        }
-    }
-
-    private class Plant : GetItem
-    {
-
+        //public string GetDisplayText()
+        //{
+        //    return GetDisplayText(", ");
+        //}
     }
 }
