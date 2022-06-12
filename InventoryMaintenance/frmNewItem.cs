@@ -52,16 +52,36 @@ namespace InventoryMaintenance
                 cboSizeOrManufacturer.Items.Add("Scotts");
             }
         }
-
+/* *************************************************************************************
+ * Step 5. Modify the event handler for the click event of the Save button on the
+ *         new item form so it creates a new item of the appropriate type using
+ *         the data entered by the user.
+ * 
+ * -- McKee & Tepper, 11JUN2022
+ * ************************************************************************************/
         private void btnSave_Click(object sender, EventArgs e)
         {
             if (IsValidData())
             {
-                invItem = new InvItem(
+                if (rdoPlant.Checked)
+                    invItem = new Plant(
+                        Convert.ToInt32(txtItemNo.Text),
+                        cboSizeOrManufacturer.Text,
+                        txtDescription.Text,
+                        Convert.ToDecimal(txtPrice.Text));
+
+                else
+                    invItem = new Supply(
+                        Convert.ToInt32(txtItemNo.Text),
+                        cboSizeOrManufacturer.Text,
+                        txtDescription.Text,
+                        Convert.ToDecimal(txtPrice.Text));
+
+                /*invItem = new InvItem(
                     Convert.ToInt32(txtItemNo.Text),
                     txtDescription.Text, 
-                    Convert.ToDecimal(txtPrice.Text)
-                );
+                    Convert.ToDecimal(txtPrice.Text)*/
+
                 this.Close();
             }
         }
