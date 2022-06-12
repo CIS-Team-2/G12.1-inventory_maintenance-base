@@ -32,7 +32,8 @@ namespace InventoryMaintenance
         public Plant() { } // 3-b.
 
         // 3-c. i, iv, ii, iii
-        public Plant (int itemNo, string size, string description, decimal price) : base(itemNo, description, price)
+        public Plant (int itemNo, string size, string description, decimal price) : 
+            base(itemNo, description, price)
         {
             this.size = size; // initializes the size field after the
                               // base class constructor is called

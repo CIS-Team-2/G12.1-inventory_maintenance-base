@@ -33,12 +33,10 @@ namespace InventoryMaintenance
         public decimal Price { get; set; }
 
 
-/* *******************************************************************
+/* *********************************************************************************
 * Step 2. Modify the GetDisplayText() method so it's overridable.
-* -- McKee & Tepper, 11JUN2022
-* *******************************************************************/
-
-        // public string GetDisplayText() => $"{ItemNo}    {Description} ({Price:c})";
+* public string GetDisplayText() => $"{ItemNo}    {Description} ({Price:c})";
+* *********************************************************************************/
         public virtual string GetDisplayText() => itemNo + "    " + description + " (" + price + ")";
 
 
