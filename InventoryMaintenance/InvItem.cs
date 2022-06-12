@@ -14,28 +14,33 @@ namespace InventoryMaintenance
 {
     public class InvItem
     {
+        private int itemNo;
+        private string description;
+        private decimal price;
         public InvItem() { } 
 
         public InvItem(int itemNo, string description, decimal price)
         {
-            ItemNo = itemNo;
-            Description = description;
-            Price = price;
+            this.ItemNo = itemNo;
+            this.Description = description;
+            this.Price = price;
         }
 
         public int ItemNo { get; set; }
+
         public string Description { get; set; }
+
         public decimal Price { get; set; }
 
-        public string GetDisplayText() => $"{ItemNo}    {Description} ({Price:c})";
 
 /* *******************************************************************
 * Step 2. Modify the GetDisplayText() method so it's overridable.
 * -- McKee & Tepper, 11JUN2022
 * *******************************************************************/
-        //public string GetDisplayText()
-        //{
-        //    return GetDisplayText(", ");
-        //}
+
+        // public string GetDisplayText() => $"{ItemNo}    {Description} ({Price:c})";
+        public virtual string GetDisplayText() => itemNo + "    " + description + " (" + price + ")";
+
+
     }
 }

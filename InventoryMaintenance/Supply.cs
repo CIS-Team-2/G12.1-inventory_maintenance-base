@@ -30,9 +30,9 @@ namespace InventoryMaintenance
 
     public class Supply : InvItem
     {
+        private string manufacturer;
+        
         public Supply() { } // 4-b
-
-        public string Manufacturer { get; set; } // 4-a. new property
 
         // 4-c. i, iv, ii, iii
         public Supply(int itemNo, string manufacturer, string description, decimal price) : base(itemNo, description, price)
@@ -41,9 +41,25 @@ namespace InventoryMaintenance
                                               // the base class constructor is called
         }
 
-        public virtual string GetDisplayText(string sep) // 4-d
+        public string Manufacturer
         {
-            return this.ItemNo + sep + this.Manufacturer + sep + this.Description + "( " + this.Price.ToString("c") + ")";
+            get
+            {
+                return this.manufacturer;
+            }
+            set
+            {
+                this.manufacturer = value;
+            }
         }
+
+        public override string GetDisplayText()
+        {
+            return this.ItemNo + "    " + 
+                this.Manufacturer + " " + 
+                this.Description + "( " + 
+                this.Price.ToString("c") + ")";
+        }
+
     }
 }

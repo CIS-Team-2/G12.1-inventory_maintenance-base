@@ -27,20 +27,38 @@ namespace InventoryMaintenance
 {
     public class Plant : InvItem
     {
-        public Plant() { } // 3-b. 
-        public string Size { get; set; } // 3-a. new property
+        private string size;
+
+        public Plant() { } // 3-b.
 
         // 3-c. i, iv, ii, iii
         public Plant (int itemNo, string size, string description, decimal price) : base(itemNo, description, price)
         {
-            this.Size = size; // initializes the size field after the
+            this.size = size; // initializes the size field after the
                               // base class constructor is called
         }
 
-        public virtual string GetDisplayText(string sep) // 3-d
+        // 3-a. new property
+        public string Size 
         {
-            return this.ItemNo + sep + this.Size + sep + this.Description + "( " + this.Price.ToString("c") + ")";
+            get 
+            {
+                return this.size;
+            }
+            set
+            {
+                this.size = value;
+            }
+        } 
+
+        public override string GetDisplayText()
+        {
+            return this.ItemNo + "    " + 
+                this.Size + " " + 
+                this.Description + "( " + 
+                this.Price.ToString("c") + ")";
         }
+        
     }
 }
 

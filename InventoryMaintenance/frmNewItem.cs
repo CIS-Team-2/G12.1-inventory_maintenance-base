@@ -68,14 +68,14 @@ namespace InventoryMaintenance
                         Convert.ToInt32(txtItemNo.Text),
                         cboSizeOrManufacturer.Text,
                         txtDescription.Text,
-                        Convert.ToInt32(txtPrice.Text));
+                        Convert.ToDecimal(txtPrice.Text));
 
                 else
                     invItem = new Supply(
                         Convert.ToInt32(txtItemNo.Text),
                         cboSizeOrManufacturer.Text,
                         txtDescription.Text,
-                        Convert.ToInt32(txtPrice.Text));
+                        Convert.ToDecimal(txtPrice.Text));
 
                 /*invItem = new InvItem(
                     Convert.ToInt32(txtItemNo.Text),
